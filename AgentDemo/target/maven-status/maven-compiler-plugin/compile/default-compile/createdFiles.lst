@@ -1,0 +1,4 @@
+com\example\agentdemo\agent\Agent$1.class
+com\example\agentdemo\agent\MyInterceptor.class
+com\example\agentdemo\AgentDemoApplication.class
+com\example\agentdemo\agent\Agent.class
