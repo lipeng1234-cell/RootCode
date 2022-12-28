@@ -18,7 +18,8 @@
 	<modules>
 		<module>Spring</module>
 		<module>AgentDemo</module>
-	</modules>
+        <module>daily-parctice</module>
+    </modules>
 	<properties>
 		<java.version>8</java.version>
 	</properties>
