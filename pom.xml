@@ -16,10 +16,16 @@
 	<name>RootCode</name>
 	<description>RootCode</description>
 	<modules>
-		<module>Spring</module>
-		<module>AgentDemo</module>
-        <module>daily-parctice</module>
-    </modules>
+		<module>spring</module>
+        <module>daily-practice</module>
+        <module>netty-client</module>
+		<module>netty-server</module>
+		<module>leet-code</module>
+		<module>agent-demo</module>
+		<module>root-stater</module>
+		<module>root-scheduled</module>
+		<module>root-filter</module>
+	</modules>
 	<properties>
 		<java.version>8</java.version>
 	</properties>
@@ -37,13 +43,13 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
 
 </project>

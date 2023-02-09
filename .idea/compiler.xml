@@ -2,21 +2,40 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="daily-practice" />
         <module name="spring" />
-        <module name="agent" />
+        <module name="agent-demo" />
+        <module name="netty-client" />
+        <module name="root-stater" />
+        <module name="root-filter" />
+        <module name="leet-code" />
+        <module name="daily-practice" />
+        <module name="root-scheduled" />
+        <module name="netty-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="agent" target="1.8" />
+      <module name="AgentDemo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AgentDemo" options="-parameters" />
       <module name="RootCode" options="-parameters" />
       <module name="agent" options="-parameters" />
+      <module name="agent-demo" options="-parameters" />
       <module name="daily-practice" options="-parameters" />
+      <module name="leet-code" options="-parameters" />
+      <module name="netty-client" options="-parameters" />
+      <module name="netty-server" options="-parameters" />
+      <module name="root-filter" options="-parameters" />
+      <module name="root-scheduled" options="-parameters" />
+      <module name="root-stater" options="-parameters" />
       <module name="spring" options="-parameters" />
     </option>
   </component>

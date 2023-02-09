@@ -1,0 +1,7 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /daily
+spring:
+  profiles:
+    include: mysql

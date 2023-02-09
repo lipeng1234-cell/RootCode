@@ -82,7 +82,7 @@ public class LiPenApplicationContext {
     }
 
     /**
-     * 获取bean
+     * 获取bean 算法
      *
      * @param beanName bean 名称
      * @return bean 对象
@@ -144,8 +144,6 @@ public class LiPenApplicationContext {
             if (instance instanceof InitializingBean){
                 ((InitializingBean) instance).afterPropertiesSet();
             }
-
-
 
             // 初始化实例后的回调
             for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
