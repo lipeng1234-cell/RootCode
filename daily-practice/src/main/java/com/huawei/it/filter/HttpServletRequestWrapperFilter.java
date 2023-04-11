@@ -18,7 +18,7 @@ public class HttpServletRequestWrapperFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         StringBuffer requestURL = httpRequest.getRequestURL();
-        System.out.println("过滤器执行了" + requestURL);
+        System.out.println("daily 过滤器执行了" + requestURL);
         chain.doFilter(request, response);
 
     }

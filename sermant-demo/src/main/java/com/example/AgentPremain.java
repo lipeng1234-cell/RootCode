@@ -1,11 +1,13 @@
-package com.huawei.it;
+package com.example;
 
-import com.huawei.it.common.MyFilenameFilter;
-import com.huawei.it.common.PathDeclarer;
+import com.example.common.BootArgsBuilder;
+import com.example.common.MyFilenameFilter;
+import com.example.common.PathDeclarer;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.instrument.Instrumentation;
+import java.util.Map;
 import java.util.jar.JarFile;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
@@ -13,34 +15,18 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 public class AgentPremain {
+    static Logger logger = getLogger();
 
+    public static void premain(String agentArgs, Instrumentation instrumentation) throws Exception {
+        
+        loadCoreLib(instrumentation);
 
-//    public static void premain(String agentOps, Instrumentation inst) {
-//        System.out.println("=========premain方法执行========");
-//        System.out.println(agentOps);
-//        // 添加Transformer
-//        inst.addTransformer(new MyTransFromAgent());
-//    }
+        // 初始化启动参数
+        logger.info("Building argument map... ");
+        final Map<String, Object> argsMap = BootArgsBuilder.build(agentArgs);
 
-    private static Logger logger = getLogger();
-    private static Logger getLogger() {
-        final Logger logger = Logger.getLogger("AgentPremain");
-        final ConsoleHandler handler = new ConsoleHandler();
-        final String lineSeparator = System.getProperty("line.separator");
-        handler.setFormatter(new Formatter() {
-            @Override
-            public String format(LogRecord record) {
-                return "[" + record.getLevel() + "] " + record.getMessage() + lineSeparator;
-            }
-        });
-        logger.addHandler(handler);
-        logger.setUseParentHandlers(false);
-        return logger;
-    }
+        AgentCoreEntrance.run(argsMap, instrumentation);
 
-    public static void premain(String agentOps, Instrumentation inst) {
-        //加载核心类库
-        loadCoreLib(inst);
     }
 
     private static void loadCoreLib(Instrumentation instrumentation) {
@@ -71,5 +57,20 @@ public class AgentPremain {
                 }
             }
         }
+    }
+
+    private static Logger getLogger() {
+        final Logger logger = Logger.getLogger("AgentPremain");
+        final ConsoleHandler handler = new ConsoleHandler();
+        final String lineSeparator = System.getProperty("line.separator");
+        handler.setFormatter(new Formatter() {
+            @Override
+            public String format(LogRecord record) {
+                return "[" + record.getLevel() + "] " + record.getMessage() + lineSeparator;
+            }
+        });
+        logger.addHandler(handler);
+        logger.setUseParentHandlers(false);
+        return logger;
     }
 }

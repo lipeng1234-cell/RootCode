@@ -14,6 +14,7 @@
         <module name="root-filter" />
         <module name="leet-code" />
         <module name="daily-practice" />
+        <module name="sermant-demo" />
         <module name="root-scheduled" />
         <module name="netty-server" />
       </profile>
@@ -36,6 +37,7 @@
       <module name="root-filter" options="-parameters" />
       <module name="root-scheduled" options="-parameters" />
       <module name="root-stater" options="-parameters" />
+      <module name="sermant-demo" options="-parameters" />
       <module name="spring" options="-parameters" />
     </option>
   </component>

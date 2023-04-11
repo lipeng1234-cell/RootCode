@@ -25,6 +25,7 @@
 		<module>root-stater</module>
 		<module>root-scheduled</module>
 		<module>root-filter</module>
+		<module>sermant-demo</module>
 	</modules>
 	<properties>
 		<java.version>8</java.version>

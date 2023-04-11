@@ -27,82 +27,51 @@
         </dependency>
 
     </dependencies>
-
-    <!--<build>
-        <finalName>dongtai-agent</finalName>
+    <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.4</version>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>&lt;!&ndash;package&ndash;&gt;
-                    </execution>
-                </executions>
                 <configuration>
+
                     <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+
                         <manifestEntries>
+                            <Class-Path>./</Class-Path>
                             <Premain-Class>com.huawei.it.AgentPremain</Premain-Class>
-                            <Agent-Class>com.huawei.it.AgentPremain</Agent-Class>
-                            <Main-Class>com.huawei.it.MyAgent</Main-Class>
-                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Boot-Class-Path>agent-1.0-SNAPSHOT.jar</Boot-Class-Path>
+                            <Can-Redefine-Classes>false</Can-Redefine-Classes>
                             <Can-Retransform-Classes>true</Can-Retransform-Classes>
-                            <Built-By>DongTai</Built-By>
+                            <Can-Set-Native-Method-Prefix>false</Can-Set-Native-Method-Prefix>
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.1.0</version>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/maven/</exclude>
-                                        <exclude>META-INF/*.txt</exclude>
-                                        <exclude>META-INF/LICENSE</exclude>
-                                        <exclude>META-INF/NOTICE</exclude>
-                                        <exclude>LICENSE</exclude>
-                                        <exclude>/*.png</exclude>
-                                        <exclude>/*.html</exclude>
-                                        <exclude>/*.jpeg</exclude>
-                                        <exclude>/*.dtd</exclude>
-                                        <exclude>/*.xml</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
-            </plugin>
+
         </plugins>
-    </build>-->
+    </build>
+
 
 
 </project>
